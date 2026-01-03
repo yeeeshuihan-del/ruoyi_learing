@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.yeeeshuihan-del</groupId>
+        <artifactId>ruoyi-common</artifactId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.github.yeeeshuihan-del</groupId>
+    <artifactId>common-core</artifactId>
+    <version>${revision}</version>
+
+    <name>common-core</name>
+    <description>common-core</description>
+
+    <!--  导入子模块	-->
+    <dependencies>
+        <!--	数据库	-->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.5.15</version>
+        </dependency>
+        <!-- MyBatis-Plus 代码生成器依赖 Freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.32</version> <!-- 推荐稳定版本，适配 3.5.x 生成器 -->
+            <scope>test</scope> <!-- 仅测试环境使用（生成器一般在测试类中执行） -->
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/learing_ruoyi.iml" filepath="$PROJECT_DIR$/.idea/learing_ruoyi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ruoyi-common/common-core/common-core.iml" filepath="$PROJECT_DIR$/ruoyi-common/common-core/common-core.iml" />
     </modules>
   </component>
 </project>

@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--  parent直接写死版本号  -->
+    <!--  parent直接写死版本号,内含springboot-dependency BOM  -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -11,35 +11,38 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.github</groupId>
+    <groupId>com.github.yeeeshuihan-del</groupId>
     <artifactId>learning_ruoyi</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>ruoyi-server</module>
+        <module>ruoyi-common</module>
+    </modules>
+
     <properties>
         <!--   统一管理版本     -->
-        <revision>2025.12-jdk8-SNAPSHOT</revision>
+        <revision>2026.01-SNAPSHOT</revision>
         <!-- Maven 相关 -->
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mapstruct.version>1.6.3</mapstruct.version>
         <!-- 微服务 -->
-        <spring-cloud.version>2023.0.2</spring-cloud.version>
-        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
-        <alibaba.nacos.version>2.0.4</alibaba.nacos.version>
-        <fastjson2.version>2.0.26</fastjson2.version>
-        <pegdown.version>1.6.0</pegdown.version>
-        <knife4j-spring-boot-starter.version>4.5.0</knife4j-spring-boot-starter.version>
-        <knife4j-spring-ui.version>2.0.9</knife4j-spring-ui.version>
+<!--        <spring-cloud.version>2023.0.2</spring-cloud.version>-->
+<!--        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>-->
+<!--        <alibaba.nacos.version>2.0.4</alibaba.nacos.version>-->
+<!--        <fastjson2.version>2.0.26</fastjson2.version>-->
+<!--        <pegdown.version>1.6.0</pegdown.version>-->
+<!--        <knife4j-spring-boot-starter.version>4.5.0</knife4j-spring-boot-starter.version>-->
+<!--        <knife4j-spring-ui.version>2.0.9</knife4j-spring-ui.version>-->
         <!-- 数据库驱动 -->
-        <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
+<!--        <mysql-connector-java.version>8.0.33</mysql-connector-java.version>-->
         <hutool.version>5.8.18</hutool.version>
         <!-- 持久层 -->
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
-        <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
-        <dynamic-datasource-spring-boot-starter.version>3.6.1</dynamic-datasource-spring-boot-starter.version>
-        <druid.version>1.2.23</druid.version>
         <!-- shiro -->
         <shiro.version>1.12.0</shiro.version>
         <java-jwt.version>4.3.0</java-jwt.version>
@@ -50,8 +53,6 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <commons.fileupload.version>1.4</commons.fileupload.version>
-        <!--		<log4j2.version>2.18.0</log4j2.version>-->
-        <!--		<logback.version>1.2.9</logback.version>-->
         <netty-all.version>5.0.0.Alpha2</netty-all.version>
         <!-- velocity -->
         <velocity-version>2.3</velocity-version>
@@ -71,308 +72,73 @@
         <opencsv.version>5.7.1</opencsv.version>
     </properties>
 
-        <!--  site时项目的元信息  -->
-<!--    <name/>-->
-<!--    <description/>-->
-<!--    <url/>-->
-<!--    <inceptionYear/>-->
-
-<!--    <organization>-->
-<!--        <name/>-->
-<!--        <url/>-->
-<!--    </organization>-->
-
-<!--    <licenses>-->
-<!--        <license>-->
-<!--            <name/>-->
-<!--            <url/>-->
-<!--            <distribution/>-->
-<!--            <comments/>-->
-<!--        </license>-->
-<!--    </licenses>-->
-
-<!--    <developers>-->
-<!--        <developer>-->
-<!--            <id/>-->
-<!--            <name/>-->
-<!--            <email/>-->
-<!--            <url/>-->
-<!--            <organization/>-->
-<!--            <organizationUrl/>-->
-<!--            <roles/>-->
-<!--            <timezone/>-->
-<!--            <properties>-->
-<!--                <key>value</key>-->
-<!--            </properties>-->
-<!--        </developer>-->
-<!--    </developers>-->
-
-<!--    <contributors>-->
-<!--        <contributor>-->
-<!--            <name/>-->
-<!--            <email/>-->
-<!--            <url/>-->
-<!--            <organization/>-->
-<!--            <organizationUrl/>-->
-<!--            <roles/>-->
-<!--            <timezone/>-->
-<!--            <properties>-->
-<!--                <key>value</key>-->
-<!--            </properties>-->
-<!--        </contributor>-->
-<!--    </contributors>-->
-
-<!--    <mailingLists>-->
-<!--        <mailingList>-->
-<!--            <name/>-->
-<!--            <subscribe/>-->
-<!--            <unsubscribe/>-->
-<!--            <post/>-->
-<!--            <archive/>-->
-<!--            <otherArchives/>-->
-<!--        </mailingList>-->
-<!--    </mailingLists>-->
-
-<!--    <prerequisites>-->
-<!--        <maven/>-->
-<!--    </prerequisites>-->
-
-        <!--   子模块     -->
-<!--    <modules>-->
-
-<!--    </modules>-->
-
-<!--    <scm child.scm.connection.inherit.append.path=.. child.scm.developerConnection.inherit.append.path=.. child.scm.url.inherit.append.path=.. >-->
-<!--        <connection/>-->
-<!--        <developerConnection/>-->
-<!--        <tag/>-->
-<!--        <url/>-->
-<!--    </scm>-->
-<!--    <issueManagement>-->
-<!--        <system/>-->
-<!--        <url/>-->
-<!--    </issueManagement>-->
-<!--    <ciManagement>-->
-<!--        <system/>-->
-<!--        <url/>-->
-<!--        <notifiers>-->
-<!--            <notifier>-->
-<!--                <type/>-->
-<!--                <sendOnError/>-->
-<!--                <sendOnFailure/>-->
-<!--                <sendOnSuccess/>-->
-<!--                <sendOnWarning/>-->
-<!--                <address/>-->
-<!--                <configuration>-->
-<!--                    <key>value</key>-->
-<!--                </configuration>-->
-<!--            </notifier>-->
-<!--        </notifiers>-->
-<!--    </ciManagement>-->
-
-
-        <!--  指定deploy phase时的配置   -->
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <uniqueVersion/>-->
-<!--            <releases>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </snapshots>-->
-<!--            <id/>-->
-<!--            <name/>-->
-<!--            <url/>-->
-<!--            <layout/>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <uniqueVersion/>-->
-<!--            <releases>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </snapshots>-->
-<!--            <id/>-->
-<!--            <name/>-->
-<!--            <url/>-->
-<!--            <layout/>-->
-<!--        </snapshotRepository>-->
-<!--        <site child.site.url.inherit.append.path=.. >-->
-<!--            <id/>-->
-<!--            <name/>-->
-<!--            <url/>-->
-<!--        </site>-->
-<!--        <downloadUrl/>-->
-<!--        <relocation>-->
-<!--        <groupId/>-->
-<!--        <artifactId/>-->
-<!--        <version/>-->
-<!--        <message/>-->
-<!--        </relocation>-->
-<!--        <status/>-->
-<!--    </distributionManagement>-->
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.1</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!-- json -->
         <dependency>
-            <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
-            <version>${fastjson2.version}</version>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-bom</artifactId>
+            <version>${hutool.version}</version>
+            <type>pom</type>
+            <!-- 注意这里是import -->
+            <scope>import</scope>
         </dependency>
-        <!-- markdown -->
-        <dependency>
-            <groupId>org.pegdown</groupId>
-            <artifactId>pegdown</artifactId>
-            <version>${pegdown.version}</version>
-        </dependency>
+<!--        &lt;!&ndash; json &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.fastjson2</groupId>-->
+<!--            <artifactId>fastjson2</artifactId>-->
+<!--            <version>${fastjson2.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; markdown &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.pegdown</groupId>-->
+<!--            <artifactId>pegdown</artifactId>-->
+<!--            <version>${pegdown.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
-<!--        <dependencies>-->
-<!--            <dependency>-->
-<!--                <groupId/>-->
-<!--                <artifactId/>-->
-<!--                <version/>-->
-<!--&lt;!&ndash;                <type/>指定dependency的类型,source,jar(default)...&ndash;&gt;-->
-<!--&lt;!&ndash;                <classifier/>指定发布类型windows, linux...&ndash;&gt;-->
-<!--                <scope/>-->
-<!--&lt;!&ndash;                <systemPath/>&ndash;&gt;-->
-<!--                <exclusions>-->
-<!--                    <exclusion>-->
-<!--                        <groupId/>-->
-<!--                        <artifactId/>-->
-<!--                    </exclusion>-->
-<!--                </exclusions>-->
-<!--                <optional/>-->
-<!--            </dependency>-->
-<!--        </dependencies>-->
         <dependencies>
+            <!--     cloud相关       -->
             <!-- spring-cloud-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--                <version>${spring-cloud.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash; spring-cloud-alibaba &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+<!--                <version>${spring-cloud-alibaba.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
-            <!-- spring-cloud-alibaba -->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-<!--            &lt;!&ndash; isbg core &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-common-core</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; isbg mq &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-mq</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; isbg sms &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-sms</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; isbg sms &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-mail</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; isbg sensitive &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-sensitive</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; isbg elasticsearch &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-elasticsearch</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; isbg sentinel &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-sentinel</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; system 微服务 api &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-system-cloud-api</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; task 微服务 api &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-task-cloud-api</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; task 微服务 base &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-base-task</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; zone 微服务 api &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-zone-cloud-api</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; job 微服务 api &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-job-cloud-api</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; plan 微服务 api &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-plan-cloud-api</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash; plan 微服务 base &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-base-plan</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
-            <!-- dom4j -->
             <dependency>
                 <groupId>dom4j</groupId>
                 <artifactId>dom4j</artifactId>
@@ -465,103 +231,10 @@
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt.version}</version>
             </dependency>
-<!--            &lt;!&ndash; isbg qiming &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.isbg.cloud</groupId>-->
-<!--                <artifactId>isbg-qiming</artifactId>-->
-<!--                <version>${revision}</version>-->
-<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
-<!--    <dependencies>-->
-<!--        <dependency>-->
-<!--            <groupId/>-->
-<!--            <artifactId/>-->
-<!--            <version/>-->
-<!--            <type/>-->
-<!--            <classifier/>-->
-<!--            <scope/>-->
-<!--            <systemPath/>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId/>-->
-<!--                    <artifactId/>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--            <optional/>-->
-<!--        </dependency>-->
-<!--    </dependencies>-->
-
-        <!--  plugins和dependencies的下载源，使用父pom的默认值  -->
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <releases>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </snapshots>-->
-<!--            <id/>-->
-<!--            <name/>-->
-<!--            <url/>-->
-<!--            <layout/>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-
-<!--    <pluginRepositories>-->
-<!--        <pluginRepository>-->
-<!--            <releases>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled/>-->
-<!--                <updatePolicy/>-->
-<!--                <checksumPolicy/>-->
-<!--            </snapshots>-->
-<!--            <id/>-->
-<!--            <name/>-->
-<!--            <url/>-->
-<!--            <layout/>-->
-<!--        </pluginRepository>-->
-<!--    </pluginRepositories>-->
-
     <build>
-<!--        &lt;!&ndash;   source code的目录（使用super pom默认值）     &ndash;&gt;-->
-<!--        <sourceDirectory/>-->
-<!--        <scriptSourceDirectory/>-->
-<!--        <testSourceDirectory/>-->
-<!--        &lt;!&ndash;   /.class的位置(super pom默认值)     &ndash;&gt;-->
-<!--        <outputDirectory/>-->
-<!--        <testOutputDirectory/>-->
-
-            <!--     plugin的增强（默认无extension只提供基础的功能）       -->
-<!--        <extensions>-->
-<!--            <extension>-->
-<!--                <groupId/>-->
-<!--                <artifactId/>-->
-<!--                <version/>-->
-<!--            </extension>-->
-<!--        </extensions>-->
-
-            <!--    对于mvn:[phase / goals]未指定参数时的默认goal    -->
-<!--        <defaultGoal/>-->
-
-<!--        <resources>-->
-<!--            <resource>-->
-<!--                <targetPath/>指定resource在target的位置默认根目录-->
-<!--                <filtering/>是否开启文件${}变量替换,如application...-->
-<!--                <directory/>源文件位置-->
-<!--                <includes/>支持的文件，支持通配-->
-<!--                <excludes/>排除的的文件，优先级高于include-->
-<!--            </resource>-->
-<!--        </resources>-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -577,104 +250,7 @@
             </resource>
         </resources>
 
-<!--        <testResources>-->
-<!--            <testResource>-->
-<!--                <targetPath/>-->
-<!--                <filtering/>-->
-<!--                <directory/>-->
-<!--                <includes/>-->
-<!--                <excludes/>-->
-<!--            </testResource>-->
-<!--        </testResources>-->
-
-            <!--     build的jar的位置       -->
-<!--        <directory/>-->
-
-<!--        <finalName/>-->
-
-            <!--  限制生效的properties  -->
-<!--        <filters/>-->
-
-<!--        <pluginManagement>-->
-<!--            <plugins>-->
-<!--                <plugin>-->
-<!--                    <groupId/>-->
-<!--                    <artifactId/>-->
-<!--                    <version/>-->
-<!--                    <extensions/>-->
-<!--                    <executions>-->
-<!--                        <execution>-->
-<!--                            <id/>-->
-<!--                            <phase/>-->
-<!--                            <goals/>-->
-<!--                            <inherited/>-->
-<!--                            <configuration/>-->
-<!--                        </execution>-->
-<!--                    </executions>-->
-<!--                    <dependencies>-->
-<!--                        <dependency>-->
-<!--                            <groupId/>-->
-<!--                            <artifactId/>-->
-<!--                            <version/>-->
-<!--                            <type/>-->
-<!--                            <classifier/>-->
-<!--                            <scope/>-->
-<!--                            <systemPath/>-->
-<!--                            <exclusions>-->
-<!--                                <exclusion>-->
-<!--                                    <groupId/>-->
-<!--                                    <artifactId/>-->
-<!--                                </exclusion>-->
-<!--                            </exclusions>-->
-<!--                            <optional/>-->
-<!--                        </dependency>-->
-<!--                    </dependencies>-->
-<!--                    <goals/>-->
-<!--                    <inherited/>-->
-<!--                    <configuration/>-->
-<!--                </plugin>-->
-<!--            </plugins>-->
-<!--        </pluginManagement>-->
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId/>-->
-<!--                <artifactId/>-->
-<!--                <version/>-->
-<!--                <extensions/>-->
-                    <!--     指定plugin的goals，绑定执行的时机phase       -->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id/>-->
-<!--                        <phase/>-->
-<!--                        <goals/>-->
-<!--                        <inherited/>-->
-<!--                        <configuration/>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-                    <!--       插件本身可能需要额外的依赖导入         -->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId/>-->
-<!--                        <artifactId/>-->
-<!--                        <version/>-->
-<!--                        <type/>-->
-<!--                        <classifier/>-->
-<!--                        <scope/>-->
-<!--                        <systemPath/>-->
-<!--                        <exclusions>-->
-<!--                            <exclusion>-->
-<!--                                <groupId/>-->
-<!--                                <artifactId/>-->
-<!--                            </exclusion>-->
-<!--                        </exclusions>-->
-<!--                        <optional/>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-                    <!--     子pom是否继承，默认true       -->
-<!--                <inherited/>-->
-                    <!--     配置参数       -->
-<!--                <configuration/>-->
-
             <!-- 指定JDK编译版本，plugin的版本在boot-starter指定了 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -696,307 +272,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--  site phase生成文档  -->
-<!--    <reports/>-->
-<!--    <reporting>-->
-<!--    <excludeDefaults/>-->
-<!--    <outputDirectory/>-->
-<!--    <plugins>-->
-<!--        <plugin>-->
-<!--            <groupId/>-->
-<!--            <artifactId/>-->
-<!--            <version/>-->
-<!--            <reportSets>-->
-<!--                <reportSet>-->
-<!--                    <id/>-->
-<!--                    <reports/>-->
-<!--                    <inherited/>-->
-<!--                    <configuration/>-->
-<!--                </reportSet>-->
-<!--            </reportSets>-->
-<!--            <inherited/>-->
-<!--            <configuration/>-->
-<!--        </plugin>-->
-<!--    </plugins>-->
-<!--    </reporting>-->
-
-<!--    <profiles>-->
-<!--        <profile>-->
-<!--      profile的id和触发时机(activation)  -->
-<!--        <id/>-->
-<!--        <activation>-->
-<!--            <activeByDefault/>-->
-<!--            <jdk/>-->
-<!--            <os>-->
-<!--                <name/>-->
-<!--                <family/>-->
-<!--                <arch/>-->
-<!--                <version/>-->
-<!--            </os>-->
-<!--            <property>-->
-<!--                <name/>-->
-<!--                <value/>-->
-<!--            </property>-->
-<!--            <file>-->
-<!--                <missing/>-->
-<!--                <exists/>-->
-<!--            </file>-->
-<!--        </activation>-->
-
-<!--            <build>-->
-<!--                <defaultGoal/>-->
-<!--                <resources>-->
-<!--                    <resource>-->
-<!--                        <targetPath/>-->
-<!--                        <filtering/>-->
-<!--                        <directory/>-->
-<!--                        <includes/>-->
-<!--                        <excludes/>-->
-<!--                    </resource>-->
-<!--                </resources>-->
-<!--                <testResources>-->
-<!--                    <testResource>-->
-<!--                        <targetPath/>-->
-<!--                        <filtering/>-->
-<!--                        <directory/>-->
-<!--                        <includes/>-->
-<!--                        <excludes/>-->
-<!--                    </testResource>-->
-<!--                </testResources>-->
-<!--                <directory/>-->
-<!--                <finalName/>-->
-<!--                <filters/>-->
-<!--                <pluginManagement>-->
-<!--                    <plugins>-->
-<!--                        <plugin>-->
-<!--                            <groupId/>-->
-<!--                            <artifactId/>-->
-<!--                            <version/>-->
-<!--                            <extensions/>-->
-<!--                            <executions>-->
-<!--                                <execution>-->
-<!--                                    <id/>-->
-<!--                                    <phase/>-->
-<!--                                    <goals/>-->
-<!--                                    <inherited/>-->
-<!--                                    <configuration/>-->
-<!--                                </execution>-->
-<!--                            </executions>-->
-<!--                            <dependencies>-->
-<!--                                <dependency>-->
-<!--                                    <groupId/>-->
-<!--                                    <artifactId/>-->
-<!--                                    <version/>-->
-<!--                                    <type/>-->
-<!--                                    <classifier/>-->
-<!--                                    <scope/>-->
-<!--                                    <systemPath/>-->
-<!--                                    <exclusions>-->
-<!--                                        <exclusion>-->
-<!--                                            <groupId/>-->
-<!--                                            <artifactId/>-->
-<!--                                        </exclusion>-->
-<!--                                    </exclusions>-->
-<!--                                    <optional/>-->
-<!--                                </dependency>-->
-<!--                            </dependencies>-->
-<!--                            <goals/>-->
-<!--                            <inherited/>-->
-<!--                            <configuration/>-->
-<!--                        </plugin>-->
-<!--                    </plugins>-->
-<!--                </pluginManagement>-->
-<!--                <plugins>-->
-<!--                    <plugin>-->
-<!--                        <groupId/>-->
-<!--                        <artifactId/>-->
-<!--                        <version/>-->
-<!--                        <extensions/>-->
-<!--                        <executions>-->
-<!--                            <execution>-->
-<!--                                <id/>-->
-<!--                                <phase/>-->
-<!--                                <goals/>-->
-<!--                                <inherited/>-->
-<!--                                <configuration/>-->
-<!--                            </execution>-->
-<!--                        </executions>-->
-<!--                        <dependencies>-->
-<!--                            <dependency>-->
-<!--                                <groupId/>-->
-<!--                                <artifactId/>-->
-<!--                                <version/>-->
-<!--                                <type/>-->
-<!--                                <classifier/>-->
-<!--                                <scope/>-->
-<!--                                <systemPath/>-->
-<!--                                <exclusions>-->
-<!--                                    <exclusion>-->
-<!--                                        <groupId/>-->
-<!--                                        <artifactId/>-->
-<!--                                    </exclusion>-->
-<!--                                </exclusions>-->
-<!--                                <optional/>-->
-<!--                            </dependency>-->
-<!--                        </dependencies>-->
-<!--                        <goals/>-->
-<!--                        <inherited/>-->
-<!--                        <configuration/>-->
-<!--                    </plugin>-->
-<!--                </plugins>-->
-<!--            </build>-->
-
-<!--            <modules/>-->
-
-    <!--    <distributionManagement>-->
-    <!--        <repository>-->
-    <!--            <uniqueVersion/>-->
-    <!--            <releases>-->
-    <!--                <enabled/>-->
-    <!--                <updatePolicy/>-->
-    <!--                <checksumPolicy/>-->
-    <!--            </releases>-->
-    <!--            <snapshots>-->
-    <!--                <enabled/>-->
-    <!--                <updatePolicy/>-->
-    <!--                <checksumPolicy/>-->
-    <!--            </snapshots>-->
-    <!--            <id/>-->
-    <!--            <name/>-->
-    <!--            <url/>-->
-    <!--            <layout/>-->
-    <!--        </repository>-->
-    <!--        <snapshotRepository>-->
-    <!--            <uniqueVersion/>-->
-    <!--            <releases>-->
-    <!--                <enabled/>-->
-    <!--                <updatePolicy/>-->
-    <!--                <checksumPolicy/>-->
-    <!--            </releases>-->
-    <!--            <snapshots>-->
-    <!--                <enabled/>-->
-    <!--                <updatePolicy/>-->
-    <!--                <checksumPolicy/>-->
-    <!--            </snapshots>-->
-    <!--            <id/>-->
-    <!--            <name/>-->
-    <!--            <url/>-->
-    <!--            <layout/>-->
-    <!--        </snapshotRepository>-->
-    <!--        <site child.site.url.inherit.append.path=.. >-->
-    <!--            <id/>-->
-    <!--            <name/>-->
-    <!--            <url/>-->
-    <!--        </site>-->
-    <!--        <downloadUrl/>-->
-    <!--        <relocation>-->
-    <!--            <groupId/>-->
-    <!--            <artifactId/>-->
-    <!--            <version/>-->
-    <!--            <message/>-->
-    <!--        </relocation>-->
-    <!--        <status/>-->
-    <!--    </distributionManagement>-->
-<!--            <properties>-->
-<!--                <key>value</key>-->
-<!--            </properties>-->
-<!--            <dependencyManagement>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId/>-->
-<!--                        <artifactId/>-->
-<!--                        <version/>-->
-<!--                        <type/>-->
-<!--                        <classifier/>-->
-<!--                        <scope/>-->
-<!--                        <systemPath/>-->
-<!--                        <exclusions>-->
-<!--                            <exclusion>-->
-<!--                                <groupId/>-->
-<!--                                <artifactId/>-->
-<!--                            </exclusion>-->
-<!--                        </exclusions>-->
-<!--                        <optional/>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--            </dependencyManagement>-->
-<!--            <dependencies>-->
-<!--                <dependency>-->
-<!--                    <groupId/>-->
-<!--                    <artifactId/>-->
-<!--                    <version/>-->
-<!--                    <type/>-->
-<!--                    <classifier/>-->
-<!--                    <scope/>-->
-<!--                    <systemPath/>-->
-<!--                    <exclusions>-->
-<!--                        <exclusion>-->
-<!--                            <groupId/>-->
-<!--                            <artifactId/>-->
-<!--                        </exclusion>-->
-<!--                    </exclusions>-->
-<!--                    <optional/>-->
-<!--                </dependency>-->
-<!--            </dependencies>-->
-<!--            <repositories>-->
-<!--                <repository>-->
-<!--                    <releases>-->
-<!--                        <enabled/>-->
-<!--                        <updatePolicy/>-->
-<!--                        <checksumPolicy/>-->
-<!--                    </releases>-->
-<!--                    <snapshots>-->
-<!--                        <enabled/>-->
-<!--                        <updatePolicy/>-->
-<!--                        <checksumPolicy/>-->
-<!--                    </snapshots>-->
-<!--                    <id/>-->
-<!--                    <name/>-->
-<!--                    <url/>-->
-<!--                    <layout/>-->
-<!--                </repository>-->
-<!--            </repositories>-->
-<!--            <pluginRepositories>-->
-<!--                <pluginRepository>-->
-<!--                    <releases>-->
-<!--                        <enabled/>-->
-<!--                        <updatePolicy/>-->
-<!--                        <checksumPolicy/>-->
-<!--                    </releases>-->
-<!--                    <snapshots>-->
-<!--                        <enabled/>-->
-<!--                        <updatePolicy/>-->
-<!--                        <checksumPolicy/>-->
-<!--                    </snapshots>-->
-<!--                    <id/>-->
-<!--                    <name/>-->
-<!--                    <url/>-->
-<!--                    <layout/>-->
-<!--                </pluginRepository>-->
-<!--            </pluginRepositories>-->
-<!--            <reports/>-->
-        <!--<reporting>-->
-        <!--    <excludeDefaults/>-->
-        <!--    <outputDirectory/>-->
-        <!--    <plugins>-->
-        <!--        <plugin>-->
-        <!--            <groupId/>-->
-        <!--            <artifactId/>-->
-        <!--            <version/>-->
-        <!--            <reportSets>-->
-        <!--                <reportSet>-->
-        <!--                    <id/>-->
-        <!--                    <reports/>-->
-        <!--                    <inherited/>-->
-        <!--                    <configuration/>-->
-        <!--                </reportSet>-->
-        <!--            </reportSets>-->
-        <!--            <inherited/>-->
-        <!--            <configuration/>-->
-        <!--        </plugin>-->
-        <!--    </plugins>-->
-        <!--</reporting>-->
-<!--        </profile>-->
-<!--    </profiles>-->
 </project>
