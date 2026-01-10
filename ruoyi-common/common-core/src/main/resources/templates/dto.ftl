@@ -19,10 +19,10 @@ import ${import};
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @Schema(name = "${className}DTO对象", description = "${functionName!}数据传输对象")
-public class ${className}DTO implements Serializable {
+public class ${ClassName}DTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
-<#list columnList as column>
+<#list columns as column>
 
     @Schema(description = "${column.columnComment}")
     <#if column.javaType == "Date">

@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/ruoyi-server/pom.xml" />
         <option value="$PROJECT_DIR$/ruoyi-common/pom.xml" />
         <option value="$PROJECT_DIR$/ruoyi-common/common-core/pom.xml" />
+        <option value="$PROJECT_DIR$/ruoyi-system/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

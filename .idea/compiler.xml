@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ruoyi-system" />
         <module name="ruoyi-server" />
         <module name="common-core" />
       </profile>
@@ -18,6 +19,7 @@
       <module name="learning_ruoyi" options="-parameters -parameters" />
       <module name="ruoyi-common" options="-parameters -parameters" />
       <module name="ruoyi-server" options="-parameters -parameters" />
+      <module name="ruoyi-system" options="-parameters -parameters" />
     </option>
   </component>
 </project>

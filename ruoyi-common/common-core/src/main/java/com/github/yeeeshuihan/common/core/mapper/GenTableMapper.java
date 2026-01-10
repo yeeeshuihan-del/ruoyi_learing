@@ -1,12 +1,9 @@
-package com.github.yeeeshuihan.mapper;
+package com.github.yeeeshuihan.common.core.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.yeeeshuihan.entity.GenTable;
+import com.github.yeeeshuihan.common.core.entity.GenTable;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.mybatis.spring.annotation.MapperScan;
-
-import java.util.List;
 
 /**
  * @author zengxiangbao

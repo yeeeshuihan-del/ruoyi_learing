@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  */
 @SpringBootApplication
-@MapperScan("com.github.yeeeshuihan.mapper")
+@MapperScan("com.github.yeeeshuihan.common.core.mapper")
 public class CommonCoreApplication {
 
     public static void main(String[] args) {

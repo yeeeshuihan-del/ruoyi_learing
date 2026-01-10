@@ -1,4 +1,4 @@
-package com.github.ruoyi.ruoyiserver;
+package config.ruoyi.ruoyiserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

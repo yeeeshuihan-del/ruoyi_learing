@@ -1,4 +1,4 @@
-package com.github.yeeeshuihan.entity;
+package com.github.yeeeshuihan.common.core.entity;
 
 import lombok.Data;
 
@@ -16,5 +16,9 @@ public class GenColumn {
 
     String javaType;
 
-//    boolean fuzzyTag;
+    String columnName;
+
+    String isPk;
+
+    String queryType = "EQ";
 }

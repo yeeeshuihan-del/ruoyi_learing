@@ -1,4 +1,4 @@
-package com.github.yeeeshuihan.entity;
+package com.github.yeeeshuihan.common.core.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -18,5 +18,5 @@ public class GenTable {
 
     String tableComment;
 
-    List<GenColumn> columnList;
+    List<GenColumn> columns;
 }

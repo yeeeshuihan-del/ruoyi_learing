@@ -6,12 +6,13 @@
 	<parent>
 		<groupId>com.github.yeeeshuihan-del</groupId>
 		<artifactId>learning_ruoyi</artifactId>
-		<version>${revision}</version>
+		<version>2026.01-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>com.github.yeeeshuihan-del</groupId>
 	<artifactId>ruoyi-server</artifactId>
+	<version>${revision}</version>
 
 	<name>ruoyi-server</name>
 	<description>ruoyi-server</description>
