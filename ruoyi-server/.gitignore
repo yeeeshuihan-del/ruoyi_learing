@@ -1,0 +1,21 @@
+# 忽略Maven/Gradle的编译输出目录（核心规则）
+target/
+
+# 可选：补充忽略其他构建/IDE相关文件（避免冗余）
+# Gradle构建目录
+build/
+# IDEA的配置目录
+.idea/
+*.iml
+*.iws
+*.ipr
+# Eclipse的配置目录
+.settings/
+.classpath
+.project
+# 日志文件
+logs/
+*.log
+# 临时文件
+*.tmp
+*.bak
