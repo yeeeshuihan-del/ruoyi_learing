@@ -60,4 +60,7 @@ mybatis-plus:
       logic-not-delete-value: '1'
       table-underline: true
 
+ruoyi:
+  Jwt:
+    signingKey: defualt_ruoyi_sign_key
 

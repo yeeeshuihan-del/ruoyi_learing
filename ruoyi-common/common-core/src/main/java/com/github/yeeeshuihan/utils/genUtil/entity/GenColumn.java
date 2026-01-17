@@ -1,9 +1,9 @@
-package com.github.yeeeshuihan.common.core.entity;
+package com.github.yeeeshuihan.utils.genUtil.entity;
 
 import lombok.Data;
 
 /**
- * @author zengxiangbao
+ * @author yeeeshuihan
  * @date 2026/1/3 17:50
  * @description
  */

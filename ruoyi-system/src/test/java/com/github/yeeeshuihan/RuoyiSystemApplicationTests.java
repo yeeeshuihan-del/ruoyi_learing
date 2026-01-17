@@ -1,4 +1,4 @@
-package com.github.yeeeshuihan.ruoyisystem;
+package com.github.yeeeshuihan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

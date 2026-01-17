@@ -39,4 +39,42 @@
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户表（精简版）';
             </sql>
         </changeSet>
+        <changeSet id="create_t_role_2026_01_17" author="yeeeshuihan@github.com">
+            <sql>
+                CREATE TABLE `t_role` (
+                                          `role_id` varchar(32) NOT NULL COMMENT '角色主键ID',
+                                          `role_code` varchar(40) NOT NULL COMMENT '角色编码（唯一，如ADMIN/USER）',
+                                          `role_name` varchar(100) NOT NULL COMMENT '角色名称（如超级管理员/普通用户）',
+                                          `role_desc` varchar(500) DEFAULT NULL COMMENT '角色描述',
+                                          `role_state` varchar(2) DEFAULT '0' COMMENT '角色状态（0 启用 1 禁用）',
+                                          `valid_tag` char(1) DEFAULT '1' COMMENT '是否有效（0 无效 1 有效）',
+                                          `create_user_id` varchar(32) DEFAULT NULL COMMENT '创建人ID',
+                                          `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                          `update_user_id` varchar(32) DEFAULT NULL COMMENT '更新人ID',
+                                          `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                          PRIMARY KEY (`role_id`) USING BTREE,
+                                          UNIQUE KEY `uk_role_code` (`role_code`) USING BTREE, -- 角色编码唯一索引，防止重复
+                                          KEY `idx_role_state` (`role_state`) USING BTREE,
+                                          KEY `idx_role_valid_tag` (`valid_tag`) USING BTREE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='角色表';
+            </sql>
+        </changeSet>
+        <changeSet id="create_t_user_role_2026_01_17" author="yeeeshuihan@github.com">
+            <sql>
+                CREATE TABLE `t_user_role` (
+                                               `user_role_id` varchar(32) NOT NULL COMMENT '用户角色关联主键ID',
+                                               `user_id` varchar(32) NOT NULL COMMENT '用户ID（关联t_user.user_id）',
+                                               `role_id` varchar(32) NOT NULL COMMENT '角色ID（关联t_role.role_id）',
+                                               `valid_tag` char(1) DEFAULT '1' COMMENT '是否有效（0 无效 1 有效）',
+                                               `create_user_id` varchar(32) DEFAULT NULL COMMENT '创建人ID',
+                                               `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                               `update_user_id` varchar(32) DEFAULT NULL COMMENT '更新人ID',
+                                               `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                               PRIMARY KEY (`user_role_id`) USING BTREE,
+                                               UNIQUE KEY `uk_user_role` (`user_id`,`role_id`) USING BTREE, -- 唯一索引，防止同一用户重复分配同一角色
+                                               KEY `idx_user_role_user_id` (`user_id`) USING BTREE, -- 按用户ID查询角色的索引
+                                               KEY `idx_user_role_role_id` (`role_id`) USING BTREE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户角色关联表';
+            </sql>
+        </changeSet>
 </databaseChangeLog>

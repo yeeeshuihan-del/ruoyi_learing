@@ -49,6 +49,11 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-jwt</artifactId>
+            <version>5.8.18</version>
+        </dependency>
         <!-- excel操作 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -130,10 +135,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--changelog-->
         <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
